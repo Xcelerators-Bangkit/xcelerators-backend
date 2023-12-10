@@ -1,5 +1,7 @@
-FROM node:lts
+FROM alpine:latest
 WORKDIR /home/app
+
+RUN apk add nodejs npm
 
 COPY . .
 
