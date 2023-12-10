@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE `transaction` ADD COLUMN `transaction_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP();
