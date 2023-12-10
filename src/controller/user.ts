@@ -27,7 +27,7 @@ export const registerUserHandler = async (req: Request, res: Response) => {
     const checkEmail = await prisma.user.findUnique({
       where: { email },
     })
-    if (!checkEmail) {
+    if (checkEmail) {
       return res.status(400).json({ "message": "Email exist!" });
     }
 
