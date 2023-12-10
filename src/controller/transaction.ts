@@ -44,3 +44,73 @@ export const createTransactionHandler = async (req: Request, res: Response) => {
     return res.status(500).json({ ...msg.ise });
   }
 }
+
+export const getTransactionDetailHandler = async (req: Request, res: Response) => {
+  try {
+    const { email, id } = req.params;
+    const decodedEmail = decodeURIComponent(email);
+    const decodedId = decodeURIComponent(id);
+
+    if (!decodedId || !decodedEmail) {
+      return res.status(400).json({ ...msg.brq });
+    }
+
+    const job = await prisma.transaction.findUnique({
+      where: { id: decodedId },
+      include: {
+        mountain: { select: { name: true } },
+        user: { select: { name: true } },
+      }
+    })
+    if (!job) {
+      return res.status(404).json({ ...msg.nof });
+    }
+    if (decodedEmail !== job.user_email) {
+      return res.status(404).json({ ...msg.nof })
+    }
+
+    // Extract the mountain name from the nested structure
+    const { mountain, user, ...rest } = job;
+
+    return res.status(200).json({
+      ...msg.suc,
+      data: { ...rest, mountain_name: mountain.name, user_name: user.name }
+    });
+  } catch (e) {
+    console.error(e);
+    return res.status(500).json({ ...msg.ise });
+  }
+}
+
+export const getTransactionByUserHandler = async (req: Request, res: Response) => {
+  try {
+    const { email } = req.params;
+    const decodedEmail = decodeURIComponent(email);
+
+    if (!decodedEmail) {
+      return res.status(400).json({ ...msg.brq });
+    }
+
+    const job = await prisma.transaction.findMany({
+      where: { user_email: decodedEmail },
+      include: {
+        mountain: { select: { name: true } },
+        user: { select: { name: true } },
+      },
+      orderBy: { t_time: "desc" }
+    })
+
+    const formattedTransactions = job.map((transaction) => {
+      const { mountain, user, ...rest } = transaction;
+      return {
+        ...msg.suc,
+        data: { ...rest, mountain_name: mountain.name, user_name: user.name },
+      };
+    });
+
+    return res.status(200).json(formattedTransactions);
+  } catch (e) {
+    console.error(e);
+    return res.status(500).json({ ...msg.ise });
+  }
+}

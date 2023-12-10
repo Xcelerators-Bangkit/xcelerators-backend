@@ -1,8 +1,10 @@
 import express, { Router } from "express";
-import { createTransactionHandler } from "../controller/transaction";
+import { createTransactionHandler, getTransactionByUserHandler, getTransactionDetailHandler } from "../controller/transaction";
 
 const transactionRouter: Router = express.Router();
 
 transactionRouter.post("/transaction", createTransactionHandler);
+transactionRouter.get("/transaction/:email/:id", getTransactionDetailHandler);
+transactionRouter.get("/transaction/:email", getTransactionByUserHandler);
 
 export default transactionRouter
