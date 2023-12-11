@@ -5631,7 +5631,8 @@
     <h3>User Endpoint</h3>
 
     <!-- Create User Start -->
-    <h3 class="code-line" data-line-start="20" data-line-end="21"><a id="1_Create_User"></a>1. Create User</h3>
+    <h3 class="code-line" data-line-start="20" data-line-end="21"><a id="1_Create_User"></a>1. Create User (Register
+        User)</h3>
     <ul>
         <li class="has-line-data" data-line-start="21" data-line-end="23">Endpoint:
             <ul>
@@ -5681,8 +5682,67 @@
     </ul>
     <!-- End Create User -->
 
+    <!-- Start Get User Detail -->
+    <h3 class="code-line" data-line-start="76" data-line-end="77"><a id="2_GET_User_Detail"></a>2 GET User Detail</h3>
+    <ul>
+        <li class="has-line-data" data-line-start="77" data-line-end="79">Endpoint:
+            <ul>
+                <li class="has-line-data" data-line-start="78" data-line-end="79">GET</li>
+            </ul>
+        </li>
+        <li class="has-line-data" data-line-start="79" data-line-end="81">Method:
+            <ul>
+                <li class="has-line-data" data-line-start="80" data-line-end="81">
+                    <code>/user/:user_email</code>
+                </li>
+            </ul>
+        </li>
+        <li class="has-line-data" data-line-start="81" data-line-end="83">Path Parameters:
+            <ul>
+                <li class="has-line-data" data-line-start="82" data-line-end="83"><code>user_email</code> as
+                    <code>varchar</code>: Email of user .
+                </li>
+            </ul>
+        <li class="has-line-data" data-line-start="33" data-line-end="40">Response:
+            <pre><code class="has-line-data" data-line-start="127" data-line-end="132" class="language-sh"><span class="hljs-number">200</span> OK: Successful retrieval of user.
+            { <span class="hljs-string">"message"</span>: <span class="hljs-string">"Success"</span>, <span class="hljs-string">"data"</span>: [/* data hasil retrieval */] }
+    <span class="hljs-number">400</span> Bad Request: Invalid request body or missing required fields.
+    <span class="hljs-number">404</span> Error Response : User not found
+    <span class="hljs-number">500</span> Internal Server Error: Server error. Something went wrong on the server.
+        </code></pre>
+        </li>
+    </ul>
+    <br>
+    <!-- End Get User Detail -->
+
+    <!-- Start Login -->
+    <h3 class="code-line" data-line-start="76" data-line-end="77"><a id="3_Login"></a>3 Login</h3>
+    <ul>
+        <li class="has-line-data" data-line-start="77" data-line-end="79">Endpoint:
+            <ul>
+                <li class="has-line-data" data-line-start="78" data-line-end="79">GET</li>
+            </ul>
+        </li>
+        <li class="has-line-data" data-line-start="79" data-line-end="81">Method:
+            <ul>
+                <li class="has-line-data" data-line-start="80" data-line-end="81">
+                    <code>/login</code>
+                </li>
+            </ul>
+        </li>
+        <li class="has-line-data" data-line-start="33" data-line-end="40">Response:
+            <pre><code class="has-line-data" data-line-start="127" data-line-end="132" class="language-sh"> 
+        <span class="hljs-number">204</span> OK: Login Success.
+        <span class="hljs-number">400</span> Bad Request: Invalid request body or missing required fields.
+        <span class="hljs-number">401</span> Error Response : Invalid email or password
+        <span class="hljs-number">500</span> Internal Server Error: Server error</code></pre>
+        </li>
+    </ul>
+    <br>
+    <!-- End Login -->
+
     <!-- Update User Start -->
-    <h3 class="code-line" data-line-start="20" data-line-end="21"><a id="2_Update_User"></a>2. Update User</h3>
+    <h3 class="code-line" data-line-start="20" data-line-end="21"><a id="4_Update_User"></a>4. Update User</h3>
     <ul>
         <li class="has-line-data" data-line-start="41" data-line-end="43">
             <p class="has-line-data" data-line-start="41" data-line-end="42">Endpoint:</p>
@@ -5696,7 +5756,6 @@
                 <li class="has-line-data" data-line-start="44" data-line-end="45"><code>/user</code></li>
             </ul>
         </li>
-        <li class="has-line-data" data-line-start="45" data-line-end="55">
         <li class="has-line-data" data-line-start="25" data-line-end="33">Request Body:
             <ul>
                 <li class="has-line-data" data-line-start="26" data-line-end="27"><code>email</code>as
@@ -5737,70 +5796,72 @@
     <!-- End Update User -->
     <br>
 
-    <!-- Start Get User -->
-    <h3 class="code-line" data-line-start="76" data-line-end="77"><a id="3_GET_User"></a>3 GET User</h3>
-    <ul>
-        <li class="has-line-data" data-line-start="77" data-line-end="79">Endpoint:
-            <ul>
-                <li class="has-line-data" data-line-start="78" data-line-end="79">GET</li>
-            </ul>
-        </li>
-        <li class="has-line-data" data-line-start="79" data-line-end="81">Method:
-            <ul>
-                <li class="has-line-data" data-line-start="80" data-line-end="81">
-                    <code>/user/:user_email</code>
-                </li>
-            </ul>
-        </li>
-        <li class="has-line-data" data-line-start="81" data-line-end="83">Path Parameters:
-            <ul>
-                <li class="has-line-data" data-line-start="82" data-line-end="83"><code>user_email</code> as
-                    <code>varchar</code>: Email of user .
-                </li>
-            </ul>
-        <li class="has-line-data" data-line-start="33" data-line-end="40">Response:
-            <pre><code class="has-line-data" data-line-start="127" data-line-end="132" class="language-sh"><span class="hljs-number">200</span> OK: Successful retrieval of user.
-        { <span class="hljs-string">"message"</span>: <span class="hljs-string">"Success"</span>, <span class="hljs-string">"data"</span>: [/* data hasil retrieval */] }
-<span class="hljs-number">400</span> Bad Request: Invalid request body or missing required fields.
-<span class="hljs-number">404</span> Error Response : User not found
-<span class="hljs-number">500</span> Internal Server Error: Server error. Something went wrong on the server.
-    </code></pre>
-        </li>
-    </ul>
-    <br>
-    <!-- End Get User -->
-
-    <!-- Start Get User Detail -->
-    <h3 class="code-line" data-line-start="76" data-line-end="77"><a id="4_GET_User_Detail"></a>4 GET User Detail</h3>
-    <ul>
-        <li class="has-line-data" data-line-start="77" data-line-end="79">Endpoint:
-            <ul>
-                <li class="has-line-data" data-line-start="78" data-line-end="79">GET</li>
-            </ul>
-        </li>
-        <li class="has-line-data" data-line-start="79" data-line-end="81">Method:
-            <ul>
-                <li class="has-line-data" data-line-start="80" data-line-end="81">
-                    <code>/user</code>
-                </li>
-            </ul>
-        </li>
-        <li class="has-line-data" data-line-start="33" data-line-end="40">Response:
-            <pre><code class="has-line-data" data-line-start="127" data-line-end="132" class="language-sh"><span class="hljs-number">200</span> OK: Successful retrieval of user.
-        { <span class="hljs-string">"message"</span>: <span class="hljs-string">"Success"</span>, <span class="hljs-string">"data"</span>: [/* data hasil retrieval */] }
-<span class="hljs-number">500</span> Internal Server Error: Server error. Something went wrong on the server.
-    </code></pre>
-        </li>
-    </ul>
-    <br>
-    <!-- End Get User Detail -->
-
     <!-- Mountain Endpoint -->
     <h3>Mountain Endpoint</h3>
 
-    <!-- Start Get Mountain Specific -->
-    <h3 class="code-line" data-line-start="76" data-line-end="77"><a id="1_GET_Mountain_Specific"></a>1. GET Mountain
-        Specific</h3>
+    <!-- Start Create Mountain -->
+    <h3 class="code-line" data-line-start="40" data-line-end="41"><a id="1_Create_Mountain"></a>1. Create Mountain</h3>
+    <ul>
+        <li class="has-line-data" data-line-start="41" data-line-end="43">
+            <p class="has-line-data" data-line-start="41" data-line-end="42">Endpoint:</p>
+            <ul>
+                <li class="has-line-data" data-line-start="42" data-line-end="43">POST</li>
+            </ul>
+        </li>
+        <li class="has-line-data" data-line-start="43" data-line-end="45">
+            <p class="has-line-data" data-line-start="43" data-line-end="44">Method:</p>
+            <ul>
+                <li class="has-line-data" data-line-start="44" data-line-end="45"><code>/mountain</code></li>
+            </ul>
+        </li>
+        <li class="has-line-data" data-line-start="45" data-line-end="55">
+            <p class="has-line-data" data-line-start="45" data-line-end="46">Request Body:</p>
+            <ul>
+                <li class="has-line-data" data-line-start="46" data-line-end="47"><code>id</code> as <code>int</code> :
+                    ID of the mountain.</li>
+                <li class="has-line-data" data-line-start="47" data-line-end="48"><code>name</code> as
+                    <code>varchar</code>:
+                    Name of the mountain.
+                </li>
+                <li class="has-line-data" data-line-start="48" data-line-end="49"><code>about</code> as
+                    <code>varchar</code>:
+                    About of the mountain.
+                </li>
+                <li class="has-line-data" data-line-start="49" data-line-end="50"><code>elevation</code> as
+                    <code>int</code>:
+                    Elevation of the mountain.
+                </li>
+                <li class="has-line-data" data-line-start="49" data-line-end="50"><code>location</code> as
+                    <code>varchar</code>:
+                    Location of the mountain.
+                </li>
+                <li class="has-line-data" data-line-start="50" data-line-end="51"><code>image_url</code> as
+                    <code>varchar</code>:
+                    URL or path to the image.
+                </li>
+                <li class="has-line-data" data-line-start="51" data-line-end="52"><code>price</code> as
+                    <code>int</code>:
+                    Price of the mountain.
+                </li>
+                <li class="has-line-data" data-line-start="52" data-line-end="53"><code>open_status</code> as
+                    <code>tinyint</code>:
+                    Open status of the mountain
+                </li>
+            </ul>
+        </li>
+        <li class="has-line-data" data-line-start="33" data-line-end="40">Response:
+            <pre><code class="has-line-data" data-line-start="127" data-line-end="132" class="language-sh"><span class="hljs-number">201</span> Created : Mountain data successfully inserted.
+        { <span class="hljs-string">"message"</span>: <span class="hljs-string">"Success"</span>, <span class="hljs-string">"data"</span>: {"id": "uuid"} }
+<span class="hljs-number">400</span> Bad Request: Invalid request body or missing required fields.
+<span class="hljs-number">500</span> Internal Server Error: Server error.
+</code></pre>
+        </li>
+    </ul>
+    <br>
+    <!-- End Create Mountain -->
+
+    <!-- Start Get Mountain Detail-->
+    <h3 class="code-line" data-line-start="76" data-line-end="77"><a id="2_GET_Mountain_Detail"></a>2. GET Mountain Detail</h3>
     <ul>
         <li class="has-line-data" data-line-start="77" data-line-end="79">Endpoint:
             <ul>
@@ -5821,21 +5882,20 @@
                 </li>
             </ul>
         <li class="has-line-data" data-line-start="33" data-line-end="40">Response:
-            <pre><code class="has-line-data" data-line-start="127" data-line-end="132" class="language-sh"><span class="hljs-number">200</span> OK: Successful retrieval of mountain.
-        { <span class="hljs-string">"message"</span>: <span class="hljs-string">"Success"</span>, <span class="hljs-string">"data"</span>: [/* data hasil retrieval */] }
-<span class="hljs-number">400</span> Bad Request: Invalid request body or missing required fields.
-<span class="hljs-number">404</span> Error Response : Mountain not found
-<span class="hljs-number">500</span> Internal Server Error: Server error. Something went wrong on the server.
+            <pre><code class="has-line-data" data-line-start="127" data-line-end="132" class="language-sh">
+        <span class="hljs-number">200</span> OK: Successful retrieval of mountain.
+                { <span class="hljs-string">"message"</span>: <span class="hljs-string">"Success"</span>, <span class="hljs-string">"data"</span>: [/* data hasil retrieval */] }
+        <span class="hljs-number">400</span> Bad Request: Invalid request body or missing required fields.
+        <span class="hljs-number">404</span> Error Response : Mountain not found
+        <span class="hljs-number">500</span> Internal Server Error: Server error. Something went wrong on the server.
     </code></pre>
         </li>
     </ul>
     <br>
-    <!-- End Get Mountain -->
+    <!-- End Get Mountain Detail-->
 
-    <!-- Start Get Mountain Detail -->
-    <h3 class="code-line" data-line-start="76" data-line-end="77"><a id="2_GET_Mountain_Detail"></a>2 GET Mountain
-        Detail
-    </h3>
+    <!-- Start Get All Mountain-->
+    <h3 class="code-line" data-line-start="76" data-line-end="77"><a id="3_GET_All_Mountain"></a>3 GET All Mountain</h3>
     <ul>
         <li class="has-line-data" data-line-start="77" data-line-end="79">Endpoint:
             <ul>
@@ -5850,7 +5910,8 @@
             </ul>
         </li>
         <li class="has-line-data" data-line-start="33" data-line-end="40">Response:
-            <pre><code class="has-line-data" data-line-start="127" data-line-end="132" class="language-sh"><span class="hljs-number">200</span> OK: Successful retrieval of mountain.
+            <pre><code class="has-line-data" data-line-start="127" data-line-end="132" class="language-sh">
+    <span class="hljs-number">200</span> OK: Successful retrieval of mountain.
             { <span class="hljs-string">"message"</span>: <span class="hljs-string">"Success"</span>, <span class="hljs-string">"data"</span>: [/* data hasil retrieval */] }
     <span class="hljs-number">500</span> Internal Server Error: Server error. Something went wrong on the server.
         </code></pre>
@@ -5859,13 +5920,147 @@
     <br>
     <!-- End Get Mountain Detail -->
 
+    <!-- Start Get Random Mountain-->
+    <h3 class="code-line" data-line-start="76" data-line-end="77"><a id="4_GET_Random_Mountain"></a>4 GET Random
+        Mountain</h3>
+    <ul>
+        <li class="has-line-data" data-line-start="77" data-line-end="79">Endpoint:
+            <ul>
+                <li class="has-line-data" data-line-start="78" data-line-end="79">GET</li>
+            </ul>
+        </li>
+        <li class="has-line-data" data-line-start="79" data-line-end="81">Method:
+            <ul>
+                <li class="has-line-data" data-line-start="80" data-line-end="81">
+                    <code>/random/mountain</code>
+                </li>
+            </ul>
+        </li>
+        <li class="has-line-data" data-line-start="33" data-line-end="40">Response:
+            <pre><code class="has-line-data" data-line-start="127" data-line-end="132" class="language-sh">
+        <span class="hljs-number">200</span> OK: Successful retrieval of mountain.
+        <span class="hljs-number">500</span> Internal Server Error: Server error.
+            </code></pre>
+        </li>
+    </ul>
+    <br>
+    <!-- End Get Random Mountain-->
+
+    <!-- Start Update Mountain -->
+    <h3 class="code-line" data-line-start="40" data-line-end="41"><a id="5_Update_Mountain"></a>5. Update Mountain</h3>
+    <ul>
+        <li class="has-line-data" data-line-start="41" data-line-end="43">
+            <p class="has-line-data" data-line-start="41" data-line-end="42">Endpoint:</p>
+            <ul>
+                <li class="has-line-data" data-line-start="42" data-line-end="43">PUT</li>
+            </ul>
+        </li>
+        <li class="has-line-data" data-line-start="43" data-line-end="45">
+            <p class="has-line-data" data-line-start="43" data-line-end="44">Method:</p>
+            <ul>
+                <li class="has-line-data" data-line-start="44" data-line-end="45"><code>/mountain</code></li>
+            </ul>
+        </li>
+        <li class="has-line-data" data-line-start="45" data-line-end="55">
+            <p class="has-line-data" data-line-start="45" data-line-end="46">Request Body:</p>
+            <ul>
+                <li class="has-line-data" data-line-start="46" data-line-end="47"><code>id</code> as <code>int</code> :
+                    ID of the mountain.</li>
+                <li class="has-line-data" data-line-start="47" data-line-end="48"><code>name</code> as
+                    <code>varchar</code>:
+                    Name of the mountain.
+                </li>
+                <li class="has-line-data" data-line-start="48" data-line-end="49"><code>about</code> as
+                    <code>varchar</code>:
+                    About of the mountain.
+                </li>
+                <li class="has-line-data" data-line-start="49" data-line-end="50"><code>elevation</code> as
+                    <code>int</code>:
+                    Elevation of the mountain.
+                </li>
+                <li class="has-line-data" data-line-start="49" data-line-end="50"><code>location</code> as
+                    <code>varchar</code>:
+                    Location of the mountain.
+                </li>
+                <li class="has-line-data" data-line-start="50" data-line-end="51"><code>image_url</code> as
+                    <code>varchar</code>:
+                    URL or path to the image.
+                </li>
+                <li class="has-line-data" data-line-start="51" data-line-end="52"><code>price</code> as
+                    <code>int</code>:
+                    Price of the mountain.
+                </li>
+                <li class="has-line-data" data-line-start="52" data-line-end="53"><code>open_status</code> as
+                    <code>tinyint</code>:
+                    Open status of the mountain
+                </li>
+            </ul>
+        </li>
+        <li class="has-line-data" data-line-start="33" data-line-end="40">Response:
+            <pre><code class="has-line-data" data-line-start="127" data-line-end="132" class="language-sh"><span class="hljs-number">200</span> OK: Mountain data successfully updated.
+    { <span class="hljs-string">"message"</span>: <span class="hljs-string">"Success"</span>, <span class="hljs-string">"data"</span>: {"id": "uuid"} }
+<span class="hljs-number">400</span> Bad Request: Invalid request body or missing required fields.
+<span class="hljs-number">404</span> Error Response : Mountain not found
+<span class="hljs-number">500</span> Internal server error : Server error. Something went wrong on the server.
+    </code></pre>
+        </li>
+    </ul>
+    <!-- End Update Mountain -->
 
     <!-- Article Endpoint -->
     <h3>Article Endpoint</h3>
 
-    <!-- Start Get Article Specific -->
-    <h3 class="code-line" data-line-start="76" data-line-end="77"><a id="1_GET_Article_Specific"></a>1. GET Article
-        Specific (can display 5 article)</h3>
+    <!-- Start Create Article -->
+    <h3 class="code-line" data-line-start="90" data-line-end="91"><a id="1_Create_Article"></a>1. Create Article</h3>
+    <ul>
+        <li class="has-line-data" data-line-start="41" data-line-end="43">
+            <p class="has-line-data" data-line-start="41" data-line-end="42">Endpoint:</p>
+            <ul>
+                <li class="has-line-data" data-line-start="42" data-line-end="43">POST</li>
+            </ul>
+        </li>
+        <li class="has-line-data" data-line-start="43" data-line-end="45">
+            <p class="has-line-data" data-line-start="43" data-line-end="44">Method:</p>
+            <ul>
+                <li class="has-line-data" data-line-start="44" data-line-end="45"><code>/article</code></li>
+            </ul>
+        </li>
+        <li class="has-line-data" data-line-start="45" data-line-end="55">
+            <p class="has-line-data" data-line-start="45" data-line-end="46">Request Body:</p>
+            <ul>
+                <li class="has-line-data" data-line-start="46" data-line-end="47"><code>id</code> as <code>int</code> :
+                    ID of the article.</li>
+                <li class="has-line-data" data-line-start="47" data-line-end="48"><code>date</code> as
+                    <code>date</code>:
+                    Date of the article.
+                </li>
+                <li class="has-line-data" data-line-start="48" data-line-end="49"><code>source_url</code> as
+                    <code>varchar</code>:
+                    source URL.
+                </li>
+                <li class="has-line-data" data-line-start="49" data-line-end="50"><code>content</code> as
+                    <code>varchar</code>:
+                    Content of the article.
+                </li>
+                <li class="has-line-data" data-line-start="50" data-line-end="51"><code>image_url</code> as
+                    <code>varchar</code>:
+                    image URL.
+                </li>
+            </ul>
+        </li>
+        <li class="has-line-data" data-line-start="33" data-line-end="40">Response:
+            <pre><code class="has-line-data" data-line-start="127" data-line-end="132" class="language-sh"><span class="hljs-number">201</span> Created: Article data sucessfully inserted.
+    { <span class="hljs-string">"message"</span>: <span class="hljs-string">"Success"</span>, <span class="hljs-string">"data"</span>: {"id": "uuid"} }
+<span class="hljs-number">400</span> Bad Request: Invalid request body or missing required fields.
+<span class="hljs-number">404</span> Error Response : Article Data is not found.
+<span class="hljs-number">500</span> Internal Server Error: Server error.
+</code></pre>
+        </li>
+    </ul>
+    <!-- End Create Article -->
+
+    <!-- Start Get Article -->
+    <h3 class="code-line" data-line-start="76" data-line-end="77"><a id="2_GET_Article"></a>2. GET Article</h3>
     <ul>
         <li class="has-line-data" data-line-start="77" data-line-end="79">Endpoint:
             <ul>
@@ -5889,7 +6084,6 @@
             <pre><code class="has-line-data" data-line-start="127" data-line-end="132" class="language-sh"><span class="hljs-number">200</span> OK: Successful retrieval of article.
             { <span class="hljs-string">"message"</span>: <span class="hljs-string">"Success"</span>, <span class="hljs-string">"data"</span>: [/* data hasil retrieval */] }
 <span class="hljs-number">400</span> Bad Request: Invalid request body or missing required fields.
-<span class="hljs-number">404</span> Error Response : Article not found.
 <span class="hljs-number">500</span> Internal Server Error: Server error. Something went wrong on the server.
         </code></pre>
         </li>
@@ -5897,8 +6091,8 @@
     <br>
     <!-- End Get Article -->
 
-    <!-- Start Get Article Detail -->
-    <h3 class="code-line" data-line-start="76" data-line-end="77"><a id="2_GET_Article_Detail"></a>2 GET Article Detail
+    <!-- Start Get All Article-->
+    <h3 class="code-line" data-line-start="76" data-line-end="77"><a id="3_GET_All_Article_Detail"></a>3 GET All Article
     </h3>
     <ul>
         <li class="has-line-data" data-line-start="77" data-line-end="79">Endpoint:
@@ -5914,14 +6108,72 @@
             </ul>
         </li>
         <li class="has-line-data" data-line-start="33" data-line-end="40">Response:
-            <pre><code class="has-line-data" data-line-start="127" data-line-end="132" class="language-sh"><span class="hljs-number">200</span> OK: Successful retrieval of article.
+            <pre><code class="has-line-data" data-line-start="127" data-line-end="132" class="language-sh">
+    <span class="hljs-number">200</span> OK: Successful retrieval of article.
             { <span class="hljs-string">"message"</span>: <span class="hljs-string">"Success"</span>, <span class="hljs-string">"data"</span>: [/* data hasil retrieval */] }
     <span class="hljs-number">500</span> Internal Server Error: Server error. Something went wrong on the server.
         </code></pre>
         </li>
     </ul>
     <br>
-    <!-- End Get Article Detail -->
+    <!-- End Get All Article-->
+
+    <!-- Start Get Random Article-->
+    <h3 class="code-line" data-line-start="76" data-line-end="77"><a id="4_GET_Random_Article"></a>4 GET Random
+        Article</h3>
+    <ul>
+        <li class="has-line-data" data-line-start="77" data-line-end="79">Endpoint:
+            <ul>
+                <li class="has-line-data" data-line-start="78" data-line-end="79">GET</li>
+            </ul>
+        </li>
+        <li class="has-line-data" data-line-start="79" data-line-end="81">Method:
+            <ul>
+                <li class="has-line-data" data-line-start="80" data-line-end="81">
+                    <code>/random/article</code>
+                </li>
+            </ul>
+        </li>
+        <li class="has-line-data" data-line-start="33" data-line-end="40">Response:
+            <pre><code class="has-line-data" data-line-start="127" data-line-end="132" class="language-sh">
+            <span class="hljs-number">200</span> OK: Successful retrieval of article.
+            <span class="hljs-number">500</span> Internal Server Error: Server error.
+                </code></pre>
+        </li>
+    </ul>
+    <br>
+    <!-- End Get Random Article-->
+
+    <!-- Start Delete Article -->
+    <h3 class="code-line" data-line-start="212" data-line-end="213"><a id="5_DELETE_Article"></a>5. DELETE Article</h3>
+    <ul>
+        <li class="has-line-data" data-line-start="213" data-line-end="215">Endpoint:
+            <ul>
+                <li class="has-line-data" data-line-start="214" data-line-end="215">DELETE</li>
+            </ul>
+        </li>
+        <li class="has-line-data" data-line-start="215" data-line-end="217">Method:
+            <ul>
+                <li class="has-line-data" data-line-start="216" data-line-end="217"><code>/article/:articleId</code>
+                </li>
+            </ul>
+        </li>
+        <li class="has-line-data" data-line-start="217" data-line-end="219">Query Parameters
+            <ul>
+                <li class="has-line-data" data-line-start="218" data-line-end="219"><code>articleId</code> as
+                    <code>Int</code>: ID of the Article.
+                </li>
+            </ul>
+        </li>
+        <li class="has-line-data" data-line-start="219" data-line-end="226">Response:
+            <pre><code class="has-line-data" data-line-start="221" data-line-end="226" class="language-sh"><span class="hljs-number">204</span> No Content: Article data is successfully deleted.
+<span class="hljs-number">400</span> Bad Request: Invalid article ID.
+<span class="hljs-number">500</span> Internal Server Error: Something went wrong on the server.
+</code></pre>
+        </li>
+    </ul>
+    <!-- End Delete Article -->
+
 
     <!-- Transaction Endpoint -->
     <h3>Transaction Endpoint</h3>
@@ -5971,15 +6223,14 @@
             <pre><code class="has-line-data" data-line-start="127" data-line-end="132" class="language-sh"><span class="hljs-number">201</span> Created: Transaction success.
     { <span class="hljs-string">"message"</span>: <span class="hljs-string">"Success"</span>, <span class="hljs-string">"data"</span>: {"id": "uuid"} }
 <span class="hljs-number">400</span> Bad Request: Invalid request body or missing required fields.
-<span class="hljs-number">404</span> Error Response : Transaction Data is not found
 <span class="hljs-number">500</span> Internal Server Error: Server error. Something went wrong on the server.
 </code></pre>
         </li>
     </ul>
     <!-- End Create Transaction -->
 
-    <!-- Start Get Transaction -->
-    <h3 class="code-line" data-line-start="76" data-line-end="77"><a id="2_GET_Transaction"></a>2. GET Transaction</h3>
+    <!-- Start Get Transaction Detail -->
+    <h3 class="code-line" data-line-start="76" data-line-end="77"><a id="2_GET_Transaction_Detail"></a>2. GET Transaction Detail</h3>
     <ul>
         <li class="has-line-data" data-line-start="77" data-line-end="79">Endpoint:
             <ul>
@@ -6009,7 +6260,7 @@
         </li>
     </ul>
     <br>
-    <!-- End Get Transaction -->
+    <!-- End Get Transaction Detail-->
 
     <!-- Start Get Transaction by user email-->
     <h3 class="code-line" data-line-start="76" data-line-end="77"><a id="3_GET_Transaction_byUserEmail"></a>3. GET
