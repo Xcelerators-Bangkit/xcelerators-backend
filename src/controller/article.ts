@@ -1,7 +1,8 @@
 import { Request, Response } from "express";
-import * as msg from "../helper/responseMessage";
-import prisma from "../model";
-import checkImageUrl from "../helper/checkImageUrl";
+import * as msg from "../helper/responseMessage.js";
+import prisma from "../model.js";
+import checkImageUrl from "../helper/checkImageUrl.js";
+import { randomPick } from "../helper/randomPick.js";
 
 export const createArticleHandler = async (req: Request, res: Response) => {
   try {
@@ -45,6 +46,43 @@ export const getArticleHandler = async (req: Request, res: Response) => {
     }
 
     return res.status(200).json({ ...msg.suc, data: job });
+  } catch (e) {
+    console.error(e);
+    return res.status(500).json({ ...msg.ise });
+  }
+}
+
+export const getAllArticleHandler = async (req: Request, res: Response) => {
+  try {
+    const job = await prisma.article.findMany()
+
+    return res.status(200).json({ ...msg.suc, data: job })
+  } catch (e) {
+    console.error(e);
+    return res.status(500).json({ ...msg.ise });
+  }
+}
+
+export const getRandomArticleHandler = async (req: Request, res: Response) => {
+  try {
+    const itemCount = await prisma.article.count();
+    const skip = Math.max(0, Math.floor(Math.random() * itemCount) - 5);
+
+    const orderBy = randomPick(['id',
+      "date",
+      "source_url",
+      "content",
+      "image_url"
+    ]) || 'id';
+    const orderDir = randomPick(["asc", "desc"]);
+
+    const job = prisma.article.findMany({
+      take: 5,
+      skip: skip,
+      orderBy: { [orderBy]: orderDir },
+    });
+
+    return res.status(200).json({ ...msg.suc, data: job })
   } catch (e) {
     console.error(e);
     return res.status(500).json({ ...msg.ise });

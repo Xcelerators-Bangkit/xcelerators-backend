@@ -38,6 +38,7 @@ model transaction {
   user_email  String
   total_price Int
   date        DateTime @db.Date
+  t_time      DateTime @default(now())
 }
 
 model user {
