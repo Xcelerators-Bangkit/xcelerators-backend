@@ -7,7 +7,7 @@ const currentDir = dirname(fileURLToPath(currentFileURL));
 const projectRoot = join(currentDir, '../..');
 
 export const storage = new Storage({
-  keyFilename: join(projectRoot, 'xcelerators-capstone-7e35d7e878ed.json')
+  keyFilename: join(projectRoot, 'service-account-storage.json')
 });
 
 export const bucketName = "xcelerators-bucket";
