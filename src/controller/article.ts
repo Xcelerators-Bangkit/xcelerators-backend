@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import * as msg from "../helper/responseMessage";
-import prisma from "../model";
-import checkImageUrl from "../helper/checkImageUrl";
-import { randomPick } from "../helper/randomPick";
+import * as msg from "../helper/responseMessage.js";
+import prisma from "../model.js";
+import checkImageUrl from "../helper/checkImageUrl.js";
+import { randomPick } from "../helper/randomPick.js";
 
 export const createArticleHandler = async (req: Request, res: Response) => {
   try {

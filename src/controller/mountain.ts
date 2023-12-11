@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import * as msg from "../helper/responseMessage";
-import prisma from "../model";
-import { randomPick } from "../helper/randomPick";
+import * as msg from "../helper/responseMessage.js";
+import prisma from "../model.js";
+import { randomPick } from "../helper/randomPick.js";
 
 export const createMountainHandler = async (req: Request, res: Response) => {
   try {

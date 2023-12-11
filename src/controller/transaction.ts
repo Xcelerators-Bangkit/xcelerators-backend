@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import * as msg from "../helper/responseMessage";
-import prisma from "../model";
+import * as msg from "../helper/responseMessage.js";
+import prisma from "../model.js";
 
 export const createTransactionHandler = async (req: Request, res: Response) => {
   try {

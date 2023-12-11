@@ -1,5 +1,5 @@
 import express, { Router } from "express";
-import { createArticleHandler, deleteArticleHandler, getAllArticleHandler, getArticleHandler, getRandomArticleHandler } from "../controller/article";
+import { createArticleHandler, deleteArticleHandler, getAllArticleHandler, getArticleHandler, getRandomArticleHandler } from "../controller/article.js";
 
 const articleRouter: Router = express.Router();
 

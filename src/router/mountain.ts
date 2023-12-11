@@ -1,5 +1,5 @@
 import express, { Router } from "express";
-import { createMountainHandler, getAllMountainHandler, getMountainDetailHandler, getRandomMountainHandler, updateMountainHandler } from "../controller/mountain";
+import { createMountainHandler, getAllMountainHandler, getMountainDetailHandler, getRandomMountainHandler, updateMountainHandler } from "../controller/mountain.js";
 
 const mountainRouter: Router = express.Router();
 

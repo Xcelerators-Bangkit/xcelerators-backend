@@ -1,8 +1,8 @@
 import express, { Application } from "express";
 import cors from "cors";
-import handleJsonError from "./middleware/handleJsonError";
-import prisma from "./model";
-import router from "./router";
+import handleJsonError from "./middleware/handleJsonError.js";
+import prisma from "./model.js";
+import router from "./router.js";
 
 const app: Application = express();
 

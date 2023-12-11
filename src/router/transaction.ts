@@ -1,5 +1,5 @@
 import express, { Router } from "express";
-import { createTransactionHandler, getTransactionByUserHandler, getTransactionDetailHandler } from "../controller/transaction";
+import { createTransactionHandler, getTransactionByUserHandler, getTransactionDetailHandler } from "../controller/transaction.js";
 
 const transactionRouter: Router = express.Router();
 
