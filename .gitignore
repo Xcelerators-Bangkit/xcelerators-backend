@@ -128,4 +128,4 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
-xcelerators-capstone-7e35d7e878ed.json
+service-account-storage.json
