@@ -22,7 +22,7 @@ model mountain {
   id          Int           @id @default(autoincrement())
   name        String
   about       String        @db.VarChar(500)
-  elevation   Int
+  elevation   String        @db.VarChar(12)
   location    String
   image_url   String        @db.VarChar(256)
   price       Int
