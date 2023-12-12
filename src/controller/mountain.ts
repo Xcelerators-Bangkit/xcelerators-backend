@@ -84,7 +84,7 @@ export const getRandomMountainHandler = async (req: Request, res: Response) => {
     ]) || 'id';
     const orderDir = randomPick(["asc", "desc"]);
 
-    const job = prisma.mountain.findMany({
+    const job = await prisma.mountain.findMany({
       take: 5,
       skip: skip,
       orderBy: { [orderBy]: orderDir },

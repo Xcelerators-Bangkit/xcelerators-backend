@@ -34,7 +34,7 @@ export const createTransactionHandler = async (req: Request, res: Response) => {
 
     const job = await prisma.transaction.create({
       data: {
-        mountain_id, user_email, total_price, date
+        mountain_id, user_email, total_price, date: dateParsed
       }
     })
 

@@ -76,7 +76,7 @@ export const getRandomArticleHandler = async (req: Request, res: Response) => {
     ]) || 'id';
     const orderDir = randomPick(["asc", "desc"]);
 
-    const job = prisma.article.findMany({
+    const job = await prisma.article.findMany({
       take: 5,
       skip: skip,
       orderBy: { [orderBy]: orderDir },
