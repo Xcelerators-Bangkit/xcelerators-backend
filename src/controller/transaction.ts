@@ -91,7 +91,10 @@ export const getTransactionByUserHandler = async (req: Request, res: Response) =
       return res.status(400).json({ ...msg.brq });
     }
 
-    const job = await prisma.transaction.findMany({
+    const job1 = await prisma.user.findUnique({ where: { email } })
+    if (!job1) { return res.status(404).json({ "message": "User not found" }) }
+
+    const job2 = await prisma.transaction.findMany({
       where: { user_email: decodedEmail },
       include: {
         mountain: { select: { name: true } },
@@ -100,7 +103,7 @@ export const getTransactionByUserHandler = async (req: Request, res: Response) =
       orderBy: { t_time: "desc" }
     })
 
-    const formattedTransactions = job.map((transaction) => {
+    const formattedTransactions = job2.map((transaction) => {
       const { mountain, user, ...rest } = transaction;
       return {
         ...msg.suc,
