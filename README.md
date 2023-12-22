@@ -35,7 +35,7 @@ Instead .env file, you also can declare it via your shell session.
 1. Create a new secret for the `DATABASE_URL`
 2. Run this command:
 ```sh
-gcloud run deploy SERVICE_NAME \
+gcloud run deploy \
     --allow-unauthenticated \
     --set-env-vars DATABASE_URL=@DATABASE_URL
 ```
