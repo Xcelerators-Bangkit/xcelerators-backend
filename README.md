@@ -8,6 +8,7 @@
 - MySQL
 - Google Cloud Run
 - Service account key with Cloud Storage access
+- gcloud CLI
 
 ## Local development setup
 
