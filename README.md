@@ -32,8 +32,9 @@ Instead .env file, you also can declare it via your shell session.
 
 ## Deployment
 
-1. Create a new secret for the `DATABASE_URL`
-2. Run this command:
+1. Of course git clone this repo
+2. Create a new secret for the `DATABASE_URL` at Google Cloud Console
+3. Run this command:
 ```sh
 gcloud run deploy \
     --allow-unauthenticated \
